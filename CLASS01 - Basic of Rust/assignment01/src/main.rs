@@ -6,7 +6,7 @@ let sub_arr = [6,8,10];
 #![allow(unused)]
 fn main() {
     let org_arr: [i32; 10] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-    let sub_arr: [i32; 3] = [4, 6, 7];
+    let sub_arr: [i32; 3] = [4, 8, 7];
 
     let mut org_arr_idx = 0;
     let mut sub_arr_idx = 0;
@@ -18,7 +18,7 @@ fn main() {
         }
         org_arr_idx = org_arr_idx + 1;
     }
-    if sub_arr_idx == sub_arr.len() 
+    if sub_arr_idx == sub_arr.len()
     {
         println!("SubArray");
     }
