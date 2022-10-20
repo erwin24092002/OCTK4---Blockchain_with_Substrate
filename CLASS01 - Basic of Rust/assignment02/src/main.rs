@@ -12,27 +12,27 @@ fn main() {
     println!("Enter the string: ");
     let mut input_s = String::new();
     io::stdin().read_line(&mut input_s).expect("No input");
+    input_s = input_s.to_lowercase();
 
-    println!("Enter the string to be counted: ");
-    let mut find_s = String::new();
-    io::stdin().read_line(&mut find_s).expect("No input");
-    
+    println!("Enter a character: ");
+    let mut find_c = String::new();
+    io::stdin().read_line(&mut find_c).expect("No input");
+    find_c = find_c.to_lowercase();
+
+    let mut rest_s: String = String::new();
+
     let mut count: i32 = 0;
-    for inp_idx in 0..(input_s.len()-find_s.len()+1)
+    for inp_idx in 0..(input_s.len()-2)
     {
-        let mut flag = true;
-        for fid_idx in 0..(find_s.len()-2)
-        {
-            if input_s.chars().nth(inp_idx+fid_idx) != find_s.chars().nth(fid_idx)
-            {
-                flag = false;
-            }
-        }
-        if flag 
+        if input_s.chars().nth(inp_idx) == find_c.chars().nth(0)
         {
             count = count + 1;
         }
+        else 
+        {
+            rest_s.push(input_s.chars().nth(inp_idx).unwrap()); 
+        }
     }
-    print!("Output: {}, {}", count, find_s);
+    print!("Output: {}, {}", count, rest_s);
 
 }
