@@ -1,5 +1,11 @@
+/*
+Cho 1 chuỗi ký tự, nhập 1 ký tự từ bàn phím trả về số lần xuất hiện của từ đó trong chuỗi đã cho, 
+và chuỗi không chứa ký tự nhập từ bàn phím. Lưu ý: khong phân biệt viết hoa, viết thường
+Ví dụ: let input = “adbcdaDd”. 
+Nhập s = ‘a’ => in ra kết quả : 2, “dbcdDd”
+Nhập s = ‘d’ => in ra kết quả : 4, “abca”
+*/
 #![allow(unused)]
-
 use std::{io::{self, Read}, collections::{HashMap}};
 
 fn main() {
