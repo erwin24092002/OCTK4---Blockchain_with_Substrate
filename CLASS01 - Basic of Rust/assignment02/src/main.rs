@@ -9,28 +9,30 @@ Nhập s = ‘d’ => in ra kết quả : 4, “abca”
 use std::{io::{self, Read}, collections::{HashMap}};
 
 fn main() {
-    println!("Enter a string: ");
-    let mut input = String::new();
-    io::stdin().read_line(&mut input).expect("No input");
+    println!("Enter the string: ");
+    let mut input_s = String::new();
+    io::stdin().read_line(&mut input_s).expect("No input");
 
-    let mut mapping: HashMap<String, i32> = HashMap::new();
-    let input_char_vec: Vec<char> = input.chars().collect();
-
-    for ch in input_char_vec {
-        if ch != '\n' && ch != '\r' {
-            mapping.entry(ch.to_lowercase().to_string())
-                    .and_modify(|num| *num += 1)
-                    .or_insert(1);
+    println!("Enter the string to be counted: ");
+    let mut find_s = String::new();
+    io::stdin().read_line(&mut find_s).expect("No input");
+    
+    let mut count: i32 = 0;
+    for inp_idx in 0..(input_s.len()-find_s.len()+1)
+    {
+        let mut flag = true;
+        for fid_idx in 0..(find_s.len()-2)
+        {
+            if input_s.chars().nth(inp_idx+fid_idx) != find_s.chars().nth(fid_idx)
+            {
+                flag = false;
+            }
+        }
+        if flag 
+        {
+            count = count + 1;
         }
     }
+    print!("Output: {}, {}", count, find_s);
 
-    loop {
-        println!("Enter a character: ");
-        let mut char = String::new();
-        io::stdin().read_line(&mut char).expect("No input");
-        match mapping.get(&char[0..1].to_lowercase().to_string()) {
-            Some(number) => println!("{}: {}", &char[0..1], number),
-            None => println!("{} not found.", &char[0..1])
-        }
-    }
 }
