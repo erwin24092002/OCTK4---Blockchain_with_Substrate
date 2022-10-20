@@ -8,17 +8,22 @@ fn main() {
     let org_arr: [i32; 10] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     let sub_arr: [i32; 3] = [4, 6, 7];
 
-    for org_arr_item in org_arr 
+    let mut org_arr_idx = 0;
+    let mut sub_arr_idx = 0;
+    while org_arr_idx < org_arr.len()
     {
-        let mut flag = true;
-        for sub_arr_item in sub_arr 
+        if (sub_arr_idx < sub_arr.len() && org_arr[org_arr_idx] == sub_arr[sub_arr_idx])
         {
-            if (sub_arr_item == org_arr_item)
-            {
-                flag = true;
-                break;
-            }
+            sub_arr_idx = sub_arr_idx + 1;
         }
+        org_arr_idx = org_arr_idx + 1;
     }
-    println!("Subarray");
+    if sub_arr_idx == sub_arr.len() 
+    {
+        println!("SubArray");
+    }
+    else 
+    {
+        println!("Not SubArray")
+    }
 }
