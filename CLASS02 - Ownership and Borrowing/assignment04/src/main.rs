@@ -6,18 +6,19 @@
 // =====================================
 
 
-// fn main() {
-//     let mut v = vec![1, 2, 3];
+fn main() {
+    let mut v = vec![1, 2, 3];
 
-//     go(&mut v);
+    go(&mut v);
 
-//     // still need v here, so I can't pass ownership to the "go' method above
-//     println!("{}", v.len())
-// }
+    // still need v here, so I can't pass ownership to the "go' method above
+    println!("{}", v.len());
+    println!("{:?}", v);
+}
 
-// fn go(v: &mut Vec<i32>) {
-//     for i in v {
-//         println!("{}", i);
-//     }
-//     v.push(4);
-// }
+fn go(v: &mut Vec<i32>) {
+    for i in v.iter() {
+        println!("{}", i);
+    }
+    v.push(4);
+}
