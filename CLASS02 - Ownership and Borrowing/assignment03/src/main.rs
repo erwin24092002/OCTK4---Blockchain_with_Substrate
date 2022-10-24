@@ -5,22 +5,22 @@
 // =====================================
 
 
-// fn main(){
+fn main(){
+    iter_num(100);
+}
 
-// }
+pub fn iter_num(num: i32) -> bool {
 
-// pub fn iter_num(num: i32) -> bool {
+    let num_str = num.to_string();
+    let chars = num_str.chars(); 
+    println!("{:?}", chars);// <-- move occurs because `chars` has type `Chars<'_>`, which does not implement the `Copy` trait
+    let len = chars.clone().count();     // <-- `chars` moved due to this method call
+    println!("Len = {:?}", len);
 
-//     let num_str = num.to_string();
-//     let chars = num_str.chars(); // <-- move occurs because `chars` has type `Chars<'_>`, which does not implement the `Copy` trait
-//     let len = chars.count();     // <-- `chars` moved due to this method call
+    for c in chars {             // <-- ❌ "value used here after move": chars
+        println!(">>> {:?}", c);
+    }
 
-//     println!("Len = {:?}", len);
-
-//     for c in chars {             // <-- ❌ "value used here after move": chars
-//         println!(">>> {:?}", c);
-//     }
-
-//     return true;
-// }
+    return true;
+}
 
