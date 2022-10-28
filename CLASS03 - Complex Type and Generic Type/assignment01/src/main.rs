@@ -1,3 +1,18 @@
+///////////////////////////////////////////
+// BAI 1
+// Yêu cầu :
+// + Sửa code liên quan tới vấn đề generic type (thay đổi ở định nghĩa struct)
+///////////////////////////////////////////
+
+
+struct Point<T, U> {
+    x: T,
+    y: U,
+}
+
 fn main() {
-    println!("Hello, world!");
+    // DON'T modify this code.
+    let p = Point{x: 5, y : "hello".to_string()};
+
+    println!("Success!");
 }
