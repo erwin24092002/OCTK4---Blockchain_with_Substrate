@@ -4,12 +4,20 @@
 // Thực hiên cargo test
 /////////////////////////////////////
 
-
-
 trait AppendBar {
     fn append_bar(self) -> Self;
 }
 //TODO: Add your code here
+
+impl AppendBar for Vec<String> {
+    fn append_bar(self) -> Self {
+        let mut v = self;
+        v.push(String::from("Bar"));
+        return v;
+    }
+}
+
+
 #[cfg(test)]
 mod tests {
     use super::*;
