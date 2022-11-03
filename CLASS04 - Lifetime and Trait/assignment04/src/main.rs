@@ -83,6 +83,22 @@ impl Price for Factory {
             None
         }
     }
+
+    fn total_price(&self, shopping_list: &[&str]) -> Option<f32> {
+        let mut total_price: f32 = 0.0;
+        if shopping_list.is_empty(){
+            return None;
+        }
+        for item in shopping_list.iter(){
+            if self.price(item).is_none() {
+                return None;
+            }
+            else {
+                total_price = total_price + self.price(item).unwrap();
+            }
+        }
+        return Some(total_price);
+    }
 }
 
 fn build_factory() -> Factory {
