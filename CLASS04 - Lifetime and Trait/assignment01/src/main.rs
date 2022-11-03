@@ -6,9 +6,8 @@
 #![allow(unused)]
 use std::io;
 fn main() {
-    // let mut input: Vec<&str>;
+    let mut input: Vec<&str>;
     loop {
-        let mut input: Vec<&str>;
         let mut input_text = String::new();
         println!("Type instruction in the format Add <name> to <department>:");
         io::stdin().read_line(&mut input_text).expect("failed to read from stdin");
@@ -20,5 +19,5 @@ fn main() {
             println!("Invalid format.");
         }
     }
-    // println!("{:?}", input);
+    println!("{:?}", input);
 }
