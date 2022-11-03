@@ -10,6 +10,9 @@ trait AppendBar {
 
 impl AppendBar for String {
     //Add your code here
+    fn append_bar(self) -> Self {
+        return self
+    }
 }
 
 fn main() {
@@ -17,7 +20,6 @@ fn main() {
     let s = s.append_bar();
     println!("s: {}", s);
 }
-
 
 #[cfg(test)]
 mod tests {
