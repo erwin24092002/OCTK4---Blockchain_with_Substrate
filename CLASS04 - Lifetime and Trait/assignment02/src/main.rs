@@ -11,7 +11,8 @@ trait AppendBar {
 impl AppendBar for String {
     //Add your code here
     fn append_bar(self) -> Self {
-        return self.push_str("Bar");
+        let mut result = self.clone();
+        return result;
     }
 }
 
